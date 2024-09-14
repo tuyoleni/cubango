@@ -21,7 +21,7 @@ export default function ProductSection() {
 
     return (
         <div className="max-w-[1200px] my-24 mx-auto p-6" id={'products'}>
-            <h1 className={`text-center text-3xl font-bold text-black/60 p-10`}>Our Products</h1>
+            <h1 className={`text-center text-3xl font-bold p-10`}>Our Products</h1>
             <div className="flex justify-center space-x-4 mb-6">
                 <Button
                     color="warning"

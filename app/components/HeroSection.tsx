@@ -15,8 +15,10 @@ export default function HeroSection() {
     const x1 = useTransform(smoothScrollY, [0, 300], [-50, -200]);
     const y1 = useTransform(smoothScrollY, [0, 300], [-50, -200]);
 
+
     const x2 = useTransform(smoothScrollY, [0, 300], [50, 200]);
     const y2 = useTransform(smoothScrollY, [0, 300], [-50, -200]);
+
 
     const x3 = useTransform(smoothScrollY, [0, 300], [-50, -200]);
     const y3 = useTransform(smoothScrollY, [0, 300], [50, 200]);
@@ -25,6 +27,8 @@ export default function HeroSection() {
     const y4 = useTransform(smoothScrollY, [0, 300], [50, 200]);
 
     const opacity = useTransform(smoothScrollY, [0, 300], [1, 0]);
+    const scaling = useTransform(smoothScrollY, [0, 300], [1, 1.4]);
+
 
     return (
         <div className="relative w-full h-screen flex items-center justify-center text-black px-8 py-12 overflow-hidden">
@@ -45,7 +49,7 @@ export default function HeroSection() {
                     {/* Parallax Background Divs */}
                     <motion.div
                         className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2"
-                        style={{x: x1, y: y1, opacity}}
+                        style={{x: x1, y: y1, opacity, scale: scaling}}
                     >
                         <div className="w-28 h-28 rounded-full">
                             <Choy size={100}/>
@@ -54,7 +58,7 @@ export default function HeroSection() {
 
                     <motion.div
                         className="absolute top-1/4 right-1/4 translate-x-1/2 -translate-y-1/2"
-                        style={{x: x2, y: y2, opacity}}
+                        style={{x: x2, y: y2, opacity, scale: scaling}}
                     >
                         <div className="w-28 h-28 rounded-full">
                             <Broccoli size={60}/>
@@ -70,9 +74,8 @@ export default function HeroSection() {
                     </motion.div>
                     <motion.div
                         className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2"
-                        style={{x: x4, y: y4, opacity}}
+                        style={{x: x4, y: y4, opacity, scale: scaling}}
                     >
-                        <div className="w-30 h-30 bg-blue-300 rounded-full"></div>
                     </motion.div>
                     <VegetableBag size={600}/>
                 </div>

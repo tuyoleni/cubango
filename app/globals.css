@@ -1,31 +1,34 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 body {
     background: #fffbfa;
 }
-
 @keyframes blobAnimation {
     0% { transform: scale(1) translateY(0); }
-    50% { transform: scale(1.5) translateY(-30px); }
+    25% { transform: scale(1.2) translateY(-50px); }
+    50% { transform: scale(1.5) translateY(-150px); }
+    75% { transform: scale(1.3) translateY(100px); }
     100% { transform: scale(1) translateY(0); }
 }
 
 @keyframes moveBlob {
     0% { transform: translate(0, 0); }
-    25% { transform: translate(-100px, 50px); }
-    50% { transform: translate(100px, -100px); }
-    75% { transform: translate(-50px, -50px); }
+    20% { transform: translate(-200px, 300px); }
+    40% { transform: translate(400px, -100px); }
+    60% { transform: translate(-300px, -200px); }
+    80% { transform: translate(200px, 400px); }
     100% { transform: translate(0, 0); }
 }
 
 .animate-blob {
-    animation: blobAnimation 10s infinite;
+    animation: blobAnimation 12s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .animate-move {
-    animation: moveBlob 20s infinite;
+    animation: moveBlob 18s infinite ease-in-out;
 }
-
