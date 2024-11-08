@@ -31,7 +31,7 @@ export default function HeroSection() {
 
 
     return (
-        <div className="relative w-full h-screen flex items-center justify-center text-black px-8 py-12 overflow-hidden">
+        <div className="relative w-full h-screen flex items-center justify-center text-black px-8 py-12 overflow-hidden" id="home">
             {/* Main Content */}
             <div className="relative flex flex-col items-center text-center max-w-2xl space-y-6 z-10">
                 <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">

@@ -1,20 +1,21 @@
 'use client'
 import React, { useState } from "react";
-import { Button, Card, Image } from "@nextui-org/react";
+import { Button, Card, Image, Input, NavbarContent } from "@nextui-org/react";
 import products from "@/app/components/data/Products";
 import { useSearch } from "@/app/components/context/SearchProvider";
 import {CardFooter} from "@nextui-org/card";
+import {SearchIcon} from "@nextui-org/shared-icons";
+
 
 export default function ProductSection() {
     const [filter, setFilter] = useState("All");
-    const { searchQuery } = useSearch();
+    const { searchQuery, setSearchQuery } = useSearch();
 
-    // Filter products based on the selected type
+
     const typeFilteredProducts = filter === "All"
         ? products
         : products.filter((product) => product.type === filter);
 
-    // Further filter products based on the search query
     const filteredProducts = typeFilteredProducts.filter(product =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -44,6 +45,20 @@ export default function ProductSection() {
                 >
                     Vegetables
                 </Button>
+                <Input
+                    classNames={{
+                        base: "max-w-full sm:max-w-[10rem] h-10",
+                        mainWrapper: "h-full",
+                        input: "text-small",
+                        inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+                    }}
+                    placeholder="Type to search..."
+                    size="sm"
+                    startContent={<SearchIcon scale={18} />}
+                    type="search"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
             </div>
 
             {/* Products Grid */}
